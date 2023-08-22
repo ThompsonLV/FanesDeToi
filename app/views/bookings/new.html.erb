@@ -1,7 +1,5 @@
 <h1>You can make you're new booking</h1>
-<%= simple_form_for [@fane, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
-<%= console %>
+<div data-controller="toggle" class="mt-5" class="d-none">
+  <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new booking</button>
+  <%= render "form", fane:@fane, booking: @booking %>
+</div>
