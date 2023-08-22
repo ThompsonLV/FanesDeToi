@@ -1,0 +1,25 @@
+.img-fluid {
+  width: 100%; /* L'image occupe 100% de la largeur de son conteneur */
+  height: auto; /* Maintient le ratio d'aspect de l'image */
+  display: block; /* Pour éviter l'espacement bas */
+}
+
+.ban {
+  position: relative; /* Permet de positionner le contenu à l'intérieur */
+  width: 100%; /* Prend 100% de la largeur disponible */
+  overflow: hidden; /* Cache le contenu qui pourrait dépasser */
+}
+
+.slogan-overlay {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white; /* Choisissez la couleur qui convient */
+  background-color: rgba(0, 0, 0, 0.7); /* Arrière-plan semi-transparent pour le slogan */
+  padding: 10px;
+  width: 80%; /* Ajustez la largeur du slogan */
+  max-width: 500px; /* Limitez la largeur maximale du slogan */
+  border-radius: 5px; /* Coins arrondis pour l'arrière-plan */
+}
