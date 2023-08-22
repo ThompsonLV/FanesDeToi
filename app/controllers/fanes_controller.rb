@@ -1,5 +1,6 @@
 class FanesController < ApplicationController
-  before_action :set_user, only: %i[new create]
+  before_action :set_user, only: %i[new create edit update]
+  before_action :set_fane, only: %i[show edit update destroy]
 
   def home
     @fanes = Fane.all
@@ -20,14 +21,30 @@ class FanesController < ApplicationController
     redirect_to user_fanes_path(@user)
   end
 
-  # def show
-  #   @fane = Fane.find(params[:id])
-  # end
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    @fane.update(fane_params)
+    redirect_to user_fane_path(@user)
+  end
+
+  def destroy
+    @fane.delete
+    redirect_to user_fanes_path(@fane.user), status: :see_other
+  end
 
   private
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def set_fane
+    @fane = Fane.find(params[:id])
   end
 
   def fane_params
