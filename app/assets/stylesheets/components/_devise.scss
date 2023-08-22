@@ -1,0 +1,46 @@
+.barre {
+  width: 400px; ;
+}
+
+.container {
+  margin: 20px;
+}
+
+.form-actions {
+  background-color: $blue;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.2) ;
+  text-align: center;
+  margin: 10px;
+
+  &:hover {
+    background-color: $orange;
+  }
+}
+
+.btn_forgot {
+  display: inline-block;
+  background-color:$red;
+  width: 220px;
+  border-radius: 10px;
+  box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.2) ;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+  text-align: center;
+
+}
+
+.btn_signup {
+  display: inline-block;
+  background-color: $blue;
+  width: 100px;
+  border-radius: 10px;
+  box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.2) ;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  margin: 10px;
+}
