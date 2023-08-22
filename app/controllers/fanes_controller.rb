@@ -1,12 +1,8 @@
 class FanesController < ApplicationController
-  def home
-    @fanes = Fane.all
-  end
 
   def index
-    @user = User.find(params[:id])
     @fanes = Fane.all
-  end 
+  end
   # def show
   #   @fane = Fane.find(params[:id])
   # end

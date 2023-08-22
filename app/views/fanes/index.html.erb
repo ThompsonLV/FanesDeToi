@@ -1,1 +1,14 @@
 <h1>Index de mes fans</h1>
+
+<ul>
+  <% @fanes.each do |fane| %>
+
+  <%= cl_image_tag(fane.photo.key,
+        width: 400, height: 300, crop: :fill) %>
+    <li><%= fane.title %></li>
+    <li><%= fane.brand %></li>
+    <li><%= fane.start_date %></li>
+    <li><%= fane.end_date  %></li>
+    <li><%= fane.validation%></li>
+  <% end %>
+</ul>
