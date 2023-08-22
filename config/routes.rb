@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     resources :fanes
   end
 
-  resources :fanes, only: %i[index show] do
-    resources :bookings, only: %i[new create]
+  resources :fanes, only: %i[ index show ] do
+    resources :bookings, only: %i[ new create edit update]
   end
 
 end
