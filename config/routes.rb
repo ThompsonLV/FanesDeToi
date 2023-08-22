@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :fanes, only: %i[ index show ] do
-    resources :bookings, only: %i[ new create edit update]
+    resources :bookings, only: %i[ new create edit update ]
+    get "my_bookings", to: "bookings#my_bookings"
   end
 
 end
