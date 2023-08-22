@@ -1,9 +1,5 @@
 class FanesController < ApplicationController
   def home
-
-  end
-
-  def index
     @fanes = Fane.all
   end
 
