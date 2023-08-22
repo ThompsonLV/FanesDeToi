@@ -53,5 +53,4 @@ class FanesController < ApplicationController
   def fane_params
     params.require(:fane).permit(:title, :brand, :start_date, :end_date)
   end
-
 end
