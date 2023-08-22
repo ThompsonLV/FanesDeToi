@@ -2,20 +2,10 @@
 
 <p> Ici mettre le form avec<strong>cloudinary</strong></p>
 
-<%= form_with model: @fane do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :brand %>
-  <%= f.text_field :brand %>
-  <%= f.label :start_date %>
-  <%= f.input :photo, as: :file %>
-  <%= f.number_field :start_date %>
-   <%= f.label :start_date %>
-  <%= f.number_field :start_date %>
-   <%= f.label :end_date %>
-  <%= f.number_field :end_date %>
-    <%= f.label :validation %>
-  <%= f.number_field :validation %>
 
+<%= simple_form_for(@restaurant) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :rating %>
   <%= f.submit %>
 <% end %>

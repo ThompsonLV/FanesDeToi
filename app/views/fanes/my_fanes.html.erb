@@ -4,10 +4,9 @@
 <p><%= fane.brand %> - </p>
 <% end %>
 
-<ul>
-    <li><%= fane.brand %></li>
-    <li><%= fane.start_date %></li>
-    <li><%= fane.end_date  %></li>
-    <li><%= fane.validation%></li>
- <% end %>
-</ul>
+<%# STIMULUS POUR AJOUTER UN FANE %>
+<%# VERIFIER le target et l'ac %>
+<div data-controller="toggle" class="mt-5" class="d-none">
+  <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new fane</button>
+  <%= render "form", fane: @fane %>
+</div>
