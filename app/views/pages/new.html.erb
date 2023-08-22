@@ -1,0 +1,16 @@
+<%= form_with model: @fane do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :brand %>
+  <%= f.text_field :brand %>
+  <%= f.label :start_date %>
+  <%= f.number_field :start_date %>
+   <%= f.label :start_date %>
+  <%= f.number_field :start_date %>
+   <%= f.label :end_date %>
+  <%= f.number_field :end_date %>
+    <%= f.label :validation %>
+  <%= f.number_field :validation %>
+
+  <%= f.submit %>
+<% end %>
