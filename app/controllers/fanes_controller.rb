@@ -17,8 +17,11 @@ class FanesController < ApplicationController
   def create
     @fane = Fane.new(fane_params)
     @fane.user = @user
-    @fane.save
-    redirect_to user_fanes_path(@user)
+    if @fane.save
+      redirect_to user_fanes_path(@user)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
