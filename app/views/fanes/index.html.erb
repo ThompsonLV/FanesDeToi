@@ -2,9 +2,10 @@
 
 <ul>
   <% @fanes.each do |fane| %>
-
-  <%= cl_image_tag(fane.photo.key,
+<% if fane.photos.attached? %>
+  <%= cl_image_tag(fane.photos.key,
         width: 400, height: 300, crop: :fill) %>
+<% end %>
     <li><%= fane.title %></li>
     <li><%= fane.brand %></li>
     <li><%= fane.start_date %></li>
