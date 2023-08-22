@@ -1,15 +1,17 @@
-<h1>Tous les fans qui existent</h1>
+<h1>Les offres du moment!</h1>
 
-<ul>
+<div class= "card_index">
   <% @fanes.each do |fane| %>
-<% if fane.photos.attached? %>
-  <%= cl_image_tag(fane.photos.key,
-        width: 400, height: 300, crop: :fill) %>
-<% end %>
-    <li><%= fane.title %></li>
-    <li><%= fane.brand %></li>
-    <li><%= fane.start_date %></li>
-    <li><%= fane.end_date  %></li>
-    <li><%= fane.validation%></li>
+    <div class="card" style="width: 18rem;">
+      <% if fane.photos.attached? %>
+        <%= cl_image_tag(fane.photos.key,
+            width: 400, height: 300, crop: :fill) %>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%= fane.title %></h5>
+        <p class="card-text"><%= fane.description %></p>
+        <%= link_to "go" , fane_path(fane), class:"btn btn-primary"%>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
