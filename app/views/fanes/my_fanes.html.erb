@@ -3,3 +3,15 @@
 <% @fanes.each do |fane| %>
 <p><%= fane.brand %> - </p>
 <% end %>
+
+
+
+
+<%# STIMULUS POUR AJOUTER UN FANE %>
+<%# VERIFIER le target et l'ac %>
+<div data-controller="toggle" class="mt-5">
+  <div data-toggle-target="togglableElement" class="d-none">
+    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new fane</button>
+    <%= render "form", fane: @fane %>
+  </div>
+</div>

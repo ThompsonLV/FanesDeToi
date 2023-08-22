@@ -8,6 +8,7 @@ class FanesController < ApplicationController
 
   def my_fanes
     @fanes = Fane.where(user_id: @user.id)
+    @fane = Fane.new
   end
 
   def new
