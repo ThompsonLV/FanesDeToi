@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :fanes, only: %i[index show] do
-    resources :bookings, only: %i[new create]
+    resources :bookings, only: %i[new create edit update]
   end
 
 end
