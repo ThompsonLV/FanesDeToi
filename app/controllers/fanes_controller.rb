@@ -1,12 +1,12 @@
 class FanesController < ApplicationController
-  before_action :set_user, only: %i[new create edit update]
+  before_action :set_user, only: %i[new create edit update my_fanes]
   before_action :set_fane, only: %i[show edit update destroy]
 
-  def home
+  def index
     @fanes = Fane.all
   end
 
-  def index
+  def my_fanes
     @fanes = Fane.where(user_id: @user.id)
   end
 
