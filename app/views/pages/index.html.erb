@@ -1,0 +1,9 @@
+<ul>
+  <% @fanes.each do |fane| %>
+    <li><%= fane.title %></li>
+    <li><%= fane.brand %></li>
+    <li><%= fane.start_date %></li>
+    <li><%= fane.end_date  %></li>
+    <li><%= fane.validation%></li>
+  <% end %>
+</ul>
