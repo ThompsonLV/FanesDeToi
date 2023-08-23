@@ -14,6 +14,7 @@
 .btn {
   width: 100%;
   border-radius: 15px;
+  background-color: rgb(60, 153, 43);
 }
 
 .card-title {
@@ -22,7 +23,7 @@
 }
 
 .bulle {
-  background-color: $green;
+  background-color: rgba(164, 193, 208, 0.983);
   text-align: center;
   width: 70%;
   border-radius: 15px;
@@ -30,7 +31,7 @@
 
 .bulle_g {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-
+  gap: 10px;
 }
