@@ -27,7 +27,7 @@ file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%
 fane_2.photos.attach(io: file, filename: "fane_2.png", content_type: "image/png")
 fane_2.save
 
-fane_3= Fane.new(title: "mongomeri", brand: "Dyson", start_date: "22/04/2000", end_date: "24/04/2000", validation: nil, user_id: @thomas.id, description: "Ventilateur de Plafond Silencieux et Élégant :
+fane_3= Fane.new(title: "pipette", brand: "Dyson", start_date: "22/04/2000", end_date: "24/04/2000", validation: nil, user_id: @thomas.id, description: "Ventilateur de Plafond Silencieux et Élégant :
 Transformez votre espace en un havre de fraîcheur avec notre ventilateur de plafond ultra-silencieux. Sa conception élégante s'intègre parfaitement à n'importe quel intérieur tout en offrant une circulation d'air optimale.")
 file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
 fane_3.photos.attach(io: file, filename: "fane_1.png", content_type: "image/png")
@@ -39,7 +39,7 @@ file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%
 fane_4.photos.attach(io: file, filename: "fane_1.png", content_type: "image/png")
 fane_4.save
 
-fane_5= Fane.new(title: "mongomeri", brand: "Dyson", start_date: "22/04/2000", end_date: "24/04/2000", validation: nil, user_id: @thomas.id, description: "Ventilateur de Plafond Silencieux et Élégant :
+fane_5= Fane.new(title: "clochette", brand: "Dyson", start_date: "22/04/2000", end_date: "24/04/2000", validation: nil, user_id: @thomas.id, description: "Ventilateur de Plafond Silencieux et Élégant :
 Transformez votre espace en un havre de fraîcheur avec notre ventilateur de plafond ultra-silencieux. Sa conception élégante s'intègre parfaitement à n'importe quel intérieur tout en offrant une circulation d'air optimale.")
 file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
 fane_5.photos.attach(io: file, filename: "fane_1.png", content_type: "image/png")
