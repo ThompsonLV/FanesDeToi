@@ -6,16 +6,17 @@ Rails.application.routes.draw do
   root "fanes#index"
 
   resources :users do
-    resources :fanes
-    get "my_fanes", to: "fanes#my_fanes"
+    resources :fanes, only: %i[ show ]
   end
+  resources :fanes, only: %i[ index new create destroy]
+  get "my_fanes", to: "fanes#my_fanes"
 
   resources :fanes, only: %i[ index show ] do
     resources :bookings, only: %i[ new create edit update ]
-    get "my_bookings", to: "bookings#my_bookings"
 
 
   end
 
+  get "my_bookings", to: "bookings#my_bookings"
 
 end

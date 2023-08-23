@@ -1,13 +1,17 @@
 class FanesController < ApplicationController
-  before_action :set_user, only: %i[new create edit update my_fanes]
+  before_action :set_user, only: %i[edit update]
   before_action :set_fane, only: %i[show edit update destroy]
 
   def index
-    @fanes = Fane.all
+    if user_signed_in?
+      @fanes = Fane.where.not(user_id: current_user.id)
+    else
+      @fanes = Fane.all
+    end
   end
 
   def my_fanes
-    @fanes = Fane.where(user_id: @user.id)
+    @fanes = Fane.where(user_id: current_user.id)
     @fane = Fane.new
   end
 
@@ -17,15 +21,17 @@ class FanesController < ApplicationController
 
   def create
     @fane = Fane.new(fane_params)
-    @fane.user = @user
-    if @fane.save
-      redirect_to user_fanes_path(@user)
+    @fane.user = current_user
+    # @user.fane = Fane.find(params[:fane_id])
+    if @fane.save!
+      redirect_to my_fanes_path
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
+    @booking = Booking.new
   end
 
   def edit
@@ -38,7 +44,11 @@ class FanesController < ApplicationController
 
   def destroy
     @fane.delete
-    redirect_to user_fanes_path(@fane.user), status: :see_other
+    redirect_to my_fanes_path, status: :see_other
+  end
+
+  def article_params
+    params.require(:article).permit(:title, :body, photos: [])
   end
 
   private
@@ -52,6 +62,6 @@ class FanesController < ApplicationController
   end
 
   def fane_params
-    params.require(:fane).permit(:photos, :title, :brand, :start_date, :end_date)
+    params.require(:fane).permit(:photos, :title, :brand, :start_date, :end_date, photos: [])
   end
 end

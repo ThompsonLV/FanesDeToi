@@ -2,22 +2,22 @@ class BookingsController < ApplicationController
 
 
   def my_bookings
-    @fane = Fane.find(params[:fane_id])
     @bookings = Booking.where(user_id: current_user.id)
   end
+
   def new
-    @fane = Fane.find(params[:fane_id])
     # @user = User.find(params[:user_id])
     # @owner = Booking.fane.user
     # @lessor = Booking.user
-    @booking = Booking.new
   end
 
   def create
+    @fane = Fane.find(params[:fane_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.fane = Fane.find(params[:fane_id])
     @booking.save!
+    redirect_to my_bookings_path
   end
 
   def edit
