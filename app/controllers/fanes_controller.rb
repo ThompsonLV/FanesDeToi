@@ -43,7 +43,7 @@ class FanesController < ApplicationController
   end
 
   def destroy
-    @fane.delete
+    @fane.destroy
     redirect_to my_fanes_path, status: :see_other
   end
 
