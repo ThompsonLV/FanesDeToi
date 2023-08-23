@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.fane = Fane.find(params[:fane_id])
     @booking.save!
-    redirect_to fane_my_bookings_path(@fane)
+    redirect_to my_bookings_path
   end
 
   def edit

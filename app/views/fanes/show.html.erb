@@ -16,3 +16,10 @@
 <h2><%= @fane.start_date %></h2>
 
 <h2><%= @fane.end_date %></h2>
+
+<% unless @fane.user == current_user || !user_signed_in?%>
+<div data-controller="toggle" class="mt-5" class="d-none">
+  <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new booking</button>
+  <%= render "bookings/form", fane:@fane, booking: @booking %>
+</div>
+<% end %>

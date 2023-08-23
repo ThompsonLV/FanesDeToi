@@ -3,7 +3,11 @@ class FanesController < ApplicationController
   before_action :set_fane, only: %i[show edit update destroy]
 
   def index
-    @fanes = Fane.where.not(user_id: current_user.id)
+    if user_signed_in?
+      @fanes = Fane.where.not(user_id: current_user.id)
+    else
+      @fanes = Fane.all
+    end
   end
 
   def my_fanes
@@ -27,6 +31,7 @@ class FanesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def edit
@@ -39,7 +44,7 @@ class FanesController < ApplicationController
 
   def destroy
     @fane.delete
-    redirect_to user_fanes_path(@fane.user), status: :see_other
+    redirect_to my_fanes_path, status: :see_other
   end
 
   def article_params
