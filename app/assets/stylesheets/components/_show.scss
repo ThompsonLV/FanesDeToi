@@ -1,0 +1,35 @@
+
+.img_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 97%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.img_client {
+  width: 70%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.title_show {
+  font-weight: bold;
+  margin: 30px;
+}
+
+.brand {
+  background-color: rgb(69, 171, 226);
+  text-align: center;
+  width: 30%;
+  border-radius: 15px;
+  margin: 30px;
+}
+
+.marque {
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+}
