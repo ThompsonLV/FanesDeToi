@@ -16,7 +16,7 @@
   <% @fanes.each do |fane| %>
     <div class="card" style="width: 18rem;">
       <% if fane.photos.attached? %>
-        <%= cl_image_tag(fane.photos.key,
+        <%= cl_image_tag(fane.photos.first.key,
             width: 400, height: 300, crop: :fill) %>
       <% end %>
       <div class="card-body">

@@ -1,12 +1,18 @@
-<h1> Hello <%= @user.name %>, here all your fanes</h1>
+<div class="container">
+  <h1> Hello <%= current_user.name %></h1>
+  <h4>Here all your fanes</h4>
 
-<% @fanes.each do |fane| %>
-<p><%= fane.brand %> - </p>
-<% end %>
+  <% @fanes.each do |fane| %>
+  <p><%= fane.brand %> - </p>
+  <% end %>
 
-<%# STIMULUS POUR AJOUTER UN FANE %>
-<%# VERIFIER le target et l'ac %>
-<div data-controller="toggle" class="mt-5" class="d-none">
-  <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new fane</button>
-  <%= render "form", fane: @fane %>
+  <%# <% @fanes.photos.each do |photo| %>
+    <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <%# <% end %>
+
+  <%# STIMULUS POUR AJOUTER UN FANE %>
+  <div data-controller="toggle" class="mt-5" class="d-none">
+    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new fane</button>
+    <%= render "form", fane: @fane %>
+  </div>
 </div>
