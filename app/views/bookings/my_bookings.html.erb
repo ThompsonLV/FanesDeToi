@@ -1,1 +1,9 @@
-<p>coucou</p>
+<h1><strong>Bookings</strong></h1>
+<ul class="list-group">
+  <% @bookings.each do |booking| %>
+    <li class="list-group-item"><%= booking.start_date%></li>
+    <li class="list-group-item"><%= booking.end_date%></li>
+    <li><%= booking.fane.title %></li>
+  <% end %>
+</ul>
+<br>
