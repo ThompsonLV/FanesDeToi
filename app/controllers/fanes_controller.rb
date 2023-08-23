@@ -8,6 +8,12 @@ class FanesController < ApplicationController
     else
       @fanes = Fane.all
     end
+    @markers = @fanes.geocoded.map do |fane|
+      {
+        lat: fane.latitude,
+        lng: fane.longitude
+      }
+    end
   end
 
   def my_fanes

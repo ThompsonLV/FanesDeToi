@@ -3,19 +3,29 @@
     <%= cl_image_tag(photo.key, crop: :fill, class: "img_client") %>
 </div>
   <%end%>
+<div class= "container_show">
+  <div class= "brand">
+  <p class= "police">Marque</p>
+    <h2 class= "marque"><%= @fane.brand %></h2>
+  </div>
+  <div class= "start_date">
+  <p class= "police">Start date</p>
+    <h2 class= "start"><%= @fane.start_date %></h2>
+  </div>
+
+  <div class= "end_date">
+   <p class= "police">End date</p>
+    <h2 class= "end"><%= @fane.end_date %></h2>
+  </div>
+</div>
 
 <h2 class= "title_show"><%= @fane.title %></h2>
 
-<div class= "brand">
-  <h2 class= "marque"><%= @fane.brand %></h2>
+
+<p class= "vent">A propos du  ventilateur.</p>
+<div class= "description">
+  <h2><%= @fane.description %></h2>
 </div>
-
-<p>A propos du  ventilateur.</p>
-<h2><%= @fane.description %></h2>
-
-<h2><%= @fane.start_date %></h2>
-
-<h2><%= @fane.end_date %></h2>
 
 <% unless @fane.user == current_user || !user_signed_in?%>
 <div data-controller="toggle" class="mt-5" class="d-none">

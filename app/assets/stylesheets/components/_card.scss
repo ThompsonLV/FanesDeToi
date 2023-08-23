@@ -4,11 +4,12 @@
   margin: 10px;
   padding: 20px;
   grid-gap: 40px;
-  border-radius: 0px 0px 15px 15px;
 }
 
 .card{
   border-radius: 10px;
+  border-radius: 0px 0px 15px 15px;
+  width: auto;
 }
 
 .btn {
@@ -23,10 +24,10 @@
 }
 
 .bulle {
-  background-color: rgb(69, 171, 226);
+  background-color: rgb(166, 173, 177);
   text-align: center;
-  width: 70%;
-  border-radius: 15px;
+  padding: 5%;
+  border-radius: 40px;
 }
 
 .bulle_g {
@@ -34,4 +35,6 @@
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
+
 }
