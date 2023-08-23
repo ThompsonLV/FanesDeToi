@@ -1,12 +1,31 @@
-<h1> Hello <%= @user.name %>, here all your fanes</h1>
+<div class="container">
+  <h1> Hello <%= current_user.name %></h1>
+  <h4>Here all your fanes</h4>
 
-<% @fanes.each do |fane| %>
-<p><%= fane.brand %> - </p>
-<% end %>
+<div class= "card_index">
+    <% @fanes.each do |fane| %>
+    <div class="card">
+      <% if fane.photos.attached? %>
+        <%= cl_image_tag(fane.photos.first.key, crop: :fill) %>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%=fane.title %></h5>
+        <div class= "bulle_g">
+          <p class= "bulle">Silencieux</p>
+          <p class= "bulle">Connecté</p>
+          <p class= "bulle">Économique</p>
+        </div>
+        <%= link_to "go" , fane_path(fane), class:"btn btn-primary"%>
+        <%= link_to "delete" , fane_path(fane), class:"btn btn-primary"%>
 
-<%# STIMULUS POUR AJOUTER UN FANE %>
-<%# VERIFIER le target et l'ac %>
-<div data-controller="toggle" class="mt-5" class="d-none">
-  <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new fane</button>
-  <%= render "form", fane: @fane %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+  <%# STIMULUS POUR AJOUTER UN FANE %>
+  <div data-controller="toggle" class="mt-5" class="d-none">
+    <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new fane</button>
+    <%= render "form", fane: @fane %>
+  </div>
 </div>
