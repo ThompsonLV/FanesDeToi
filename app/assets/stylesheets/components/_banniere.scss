@@ -23,3 +23,24 @@
   max-width: 500px; /* Limitez la largeur maximale du slogan */
   border-radius: 5px; /* Coins arrondis pour l'arrière-plan */
 }
+
+.banniere_2 {
+  clip: rect(auto, auto, 80%, auto);
+  display: block;
+  position: relative; /* Permet de positionner le contenu à l'intérieur */
+  width: 100%; /* Prend 100% de la largeur disponible */
+  overflow: hidden;
+}
+
+.slogan-banniere {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: black; /* Choisissez la couleur qui convient */
+  padding: 10px;
+  width: 80%; /* Ajustez la largeur du slogan */
+  max-width: 500px; /* Limitez la largeur maximale du slogan */
+  border-radius: 5px; /* Coins arrondis pour l'arrière-plan */
+}
