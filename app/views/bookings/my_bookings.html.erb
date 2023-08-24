@@ -3,7 +3,10 @@
 
   <% @bookings.each do |booking| %>
     <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <% if booking.fane.photos.attached? %>
+        <%= cl_image_tag(booking.fane.photos.first.key, height: 200, crop: :fill) %>
+      <% end %>
+
       <div class="card-product-infos">
         <h2><%= booking.fane.title %></h2>
         <p>Available : <%= booking.start_date%> to <%= booking.end_date%> </p>

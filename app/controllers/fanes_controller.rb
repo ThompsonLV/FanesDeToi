@@ -11,7 +11,7 @@ class FanesController < ApplicationController
     @markers = @fanes.geocoded.map do |fane|
       {
         lat: fane.latitude,
-        lng: fane.longitude
+        lng: fane.longitude,
         info_window: render_to_string(partial: "info_window", locals: {fane: fane})
       }
     end
@@ -50,7 +50,7 @@ class FanesController < ApplicationController
   end
 
   def destroy
-    @fane.destroy
+    @fane.delete
     redirect_to my_fanes_path, status: :see_other
   end
 

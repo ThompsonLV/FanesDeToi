@@ -2,27 +2,26 @@
   <h1> Hello <%= current_user.name %></h1>
   <h4>Here all your fanes</h4>
 
-<div class= "card_index">
+  <div class= "card_index">
     <% @fanes.each do |fane| %>
-    <div class="card">
-      <% if fane.photos.attached? %>
-        <%= cl_image_tag(fane.photos.first.key, crop: :fill) %>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%=fane.title %></h5>
-        <div class= "bulle_g">
-          <p class= "bulle">Silencieux</p>
-          <p class= "bulle">Connecté</p>
-          <p class= "bulle">Économique</p>
+      <%= link_to fane_path(fane) do %>
+        <div class="card">
+          <% if fane.photos.attached? %>
+            <%= cl_image_tag(fane.photos.first.key, height: 200, crop: :fill) %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%=fane.title %></h5>
+            <div class= "bulle_g">
+              <p class= "bulle">Silent</p>
+              <p class= "bulle">Connected</p>
+            </div>
+          </div>
         </div>
+      <% end %>
+    <% end %>
+  </div>
 
-          <%= link_to "go" , fane_path(fane), class:"btn btn-primary"%>
 
-          <%= link_to "delete" , fane_path(fane), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-danger"%>
-      </div>
-    </div>
-  <% end %>
-</div>
 
   <%# STIMULUS POUR AJOUTER UN FANE %>
   <div data-controller="toggle" class="mt-5" class="d-none">
