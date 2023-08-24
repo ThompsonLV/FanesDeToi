@@ -11,7 +11,7 @@ class FanesController < ApplicationController
     @markers = @fanes.geocoded.map do |fane|
       {
         lat: fane.latitude,
-        lng: fane.longitude
+        lng: fane.longitude,
         info_window: render_to_string(partial: "info_window", locals: {fane: fane})
       }
     end
