@@ -1,41 +1,42 @@
+<div class="container">
   <h2 class= "title_show"><%= @fane.title %></h2>
-
-<div class= "img_container">
-  <% @fane.photos.each do |photo|%>
-    <%= cl_image_tag(photo.key, crop: :fill, class: "img_client") %>
-  <div class= "container_show">
-    <div class= "brand">
-      <p class= "police">Brand</p>
-        <h2 class= "marque"><%= @fane.brand %></h2>
-    </div>
-    <div class= "start_date">
-      <p class= "police">Start date</p>
-        <h2 class= "start"><%= @fane.start_date %></h2>
-    </div>
-    <div class= "end_date">
-      <p class= "police">End date</p>
-        <h2 class= "end"><%= @fane.end_date %></h2>
+  <div class= "img_container">
+    <% @fane.photos.each do |photo|%>
+      <%= cl_image_tag(photo.key, crop: :fill, class: "img_client") %>
+    <div class= "container_show">
+      <div class= "brand">
+        <p class= "police">Brand</p>
+          <h2 class= "marque"><%= @fane.brand %></h2>
+      </div>
+      <div class= "start_date">
+        <p class= "police">Start date</p>
+          <h2 class= "start"><%= @fane.start_date %></h2>
+      </div>
+      <div class= "end_date">
+        <p class= "police">End date</p>
+          <h2 class= "end"><%= @fane.end_date %></h2>
+      </div>
     </div>
   </div>
-</div>
-  <%end%>
+    <%end%>
 
-<div class= "content_show">
+  <div class= "content_show">
 
 
-  <h2 class= "vent">About the fan.</h2>
-  <div >
-    <p class= "description"><%= @fane.description %></p>
-  </div>
-
-  <% unless @fane.user == current_user || !user_signed_in?%>
-    <div data-controller="toggle" class="mt-5" class="d-none">
-      <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new booking</button>
-      <%= render "bookings/form", fane:@fane, booking: @booking %>
+    <h2 class= "vent">About the fan.</h2>
+    <div >
+      <p class= "description"><%= @fane.description %></p>
     </div>
-  <% end %>
 
-  <% if @fane.user == current_user %>
-    <%= link_to "delete", fane_path(@fane), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-danger"%>
-  <% end %>
+    <% unless @fane.user == current_user || !user_signed_in?%>
+      <div data-controller="toggle" class="mt-5" class="d-none">
+        <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new booking</button>
+        <%= render "bookings/form", fane:@fane, booking: @booking %>
+      </div>
+    <% end %>
+
+    <% if @fane.user == current_user %>
+      <%= link_to "delete", fane_path(@fane), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-danger"%>
+    <% end %>
+  </div>
 </div>

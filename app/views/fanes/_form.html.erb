@@ -1,22 +1,25 @@
-<div  data-toggle-target="togglableElement" class="invisible" data-controller="datepicker">
+
   <%= simple_form_for(@fane) do |f| %>
     <div class="form_inputs">
       <%= f.input :title %>
       <%= f.input :brand %>
-        <%= f.input :address,
-          input_html: {
-            data: {address_autocomplete_target: "address"},
-            class:"d-none"},
-          wrapper_html: {
-            data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-        %>
-      <%= text_field_tag "jdkg", nil , data: { datepicker_target: "picker" } %>
-      <%= f.hidden_field :start_date, data: { datepicker_target: "start" } %>
-      <%= f.hidden_field :end_date, data: { datepicker_target: "end" } %>
+      <%= f.input :price_per_day %>
+      <%= f.input :address,
+        input_html: {
+          data: {address_autocomplete_target: "address"},
+          class:"d-none"},
+        wrapper_html: {
+          data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+      %>
+      <div class="d-flex flex-column" >
+        <%= "Date" %>
+        <%= text_field_tag "jdkg", nil , data: { datepicker_target: "picker" } %>
+        <%= f.hidden_field :start_date, data: { datepicker_target: "start" } %>
+        <%= f.hidden_field :end_date, data: { datepicker_target: "end" } %>
+      </div>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
     <div class="form_actions">
       <%= f.submit "Submit fane", class: "btn btn-primary" %>
     </div>
   <% end %>
-</div>

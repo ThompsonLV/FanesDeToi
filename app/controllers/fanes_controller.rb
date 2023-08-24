@@ -1,5 +1,5 @@
 class FanesController < ApplicationController
-  before_action :set_user, only: %i[edit update]
+  before_action :set_user, only: %i[]
   before_action :set_fane, only: %i[show edit update destroy]
 
   def index
@@ -79,6 +79,6 @@ class FanesController < ApplicationController
   end
 
   def fane_params
-    params.require(:fane).permit(:photos, :title, :brand, :start_date, :end_date, photos: [])
+    params.require(:fane).permit(:photos, :title, :brand, :start_date, :end_date, :price_per_day, photos: [])
   end
 end
