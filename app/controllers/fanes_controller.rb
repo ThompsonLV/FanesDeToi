@@ -69,6 +69,6 @@ class FanesController < ApplicationController
   end
 
   def fane_params
-    params.require(:fane).permit(:photos, :title, :brand, :start_date, :end_date, photos: [])
+    params.require(:fane).permit(:photos, :title, :brand, :start_date, :end_date, :price_per_day, photos: [])
   end
 end
