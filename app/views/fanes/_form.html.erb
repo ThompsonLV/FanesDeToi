@@ -1,15 +1,21 @@
 <div  data-toggle-target="togglableElement" class="invisible">
   <%= simple_form_for(@fane) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :brand %>
-    <%= f.input :address,
-      input_html: {data: {address_autocomplete_target: "address"}},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-    %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.submit "Submit fane", class: "btn btn-primary" %>
+    <div class="form_inputs">
+      <%= f.input :title %>
+      <%= f.input :brand %>
+        <%= f.input :address,
+          input_html: {
+            data: {address_autocomplete_target: "address"},
+            class:"d-none"},
+          wrapper_html: {
+            data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+        %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    </div>
+    <div class="form_actions">
+      <%= f.submit "Submit fane", class: "btn btn-primary" %>
+    </div>
   <% end %>
 </div>
-@
