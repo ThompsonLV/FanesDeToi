@@ -1,7 +1,8 @@
-<div  data-toggle-target="togglableElement" class="invisible">
+<div  data-toggle-target="togglableElement" class="invisible" data-controller="bookingpicker" data-bookingpicker-dates-value="<%= [@fane.start_date.strftime("%Y-%m-%d"), @fane.end_date.strftime("%Y-%m-%d") ] %>" >
  <%= simple_form_for [@fane, @booking] do |f| %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+    <%= text_field_tag "jdkg", nil , data: { bookingpicker_target: "picker" } %>
+    <%= f.hidden_field :start_date, data: { bookingpicker_target: "start" } %>
+    <%= f.hidden_field :end_date, data: { bookingpicker_target: "end" } %>
     <%= f.submit "Submit booking", class: "btn btn-primary" %>
   <% end %>
 </div>
