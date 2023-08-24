@@ -1,0 +1,33 @@
+
+.la_team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px;
+
+}
+
+.titre_team {
+  text-align: center;
+  font-weight: bold;
+}
+
+.bd-placeholder-img {
+  display: flex;
+  flex-direction: column;
+}
+
+.img_center {
+  margin: 20px;
+}
+
+.img_container {
+  width: 120px;
+  height: 120px;
+  img{
+width: 100%;
+  }
+}
+
+h1 {
+  font-weight: bold;
+}
