@@ -12,6 +12,7 @@ class FanesController < ApplicationController
       {
         lat: fane.latitude,
         lng: fane.longitude
+        info_window: render_to_string(partial: "info_window", locals: {fane: fane})
       }
     end
   end
