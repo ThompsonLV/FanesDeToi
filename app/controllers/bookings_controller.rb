@@ -32,6 +32,12 @@ class BookingsController < ApplicationController
     redirect_to fane_my_bookings_path(@fane)
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.delete
+    redirect_to my_bookings_path, status: :see_other
+  end
+
   private
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)

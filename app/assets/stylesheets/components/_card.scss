@@ -4,17 +4,17 @@
   margin: 10px;
   padding: 20px;
   grid-gap: 40px;
-  border-radius: 0px 0px 15px 15px;
 }
 
 .card{
   border-radius: 10px;
+  border-radius: 0px 0px 15px 15px;
+  width: auto;
 }
 
 .btn {
   width: 100%;
   border-radius: 15px;
-  background-color: rgb(60, 153, 43);
 }
 
 .card-title {
@@ -23,10 +23,10 @@
 }
 
 .bulle {
-  background-color: rgb(69, 171, 226);
+  background-color: rgb(166, 173, 177);
   text-align: center;
-  width: 70%;
-  border-radius: 15px;
+  padding: 5%;
+  border-radius: 40px;
 }
 
 .bulle_g {
@@ -34,4 +34,44 @@
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
+
+}
+
+
+// POUR LES MY_BOOKINGS
+.card-product {
+  overflow: hidden;
+  width: 600px;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+
+  img {
+    height: 100%;
+    width: 120px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
 }

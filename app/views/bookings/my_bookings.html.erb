@@ -1,10 +1,14 @@
-<h1><strong>Bookings</strong></h1>
-<ul class="list-group">
-  <% @bookings.each do |booking| %>
-    <li class="list-group-item"><%= booking.start_date%></li>
-    <li class="list-group-item"><%= booking.end_date%></li>
-    <li><%= booking.fane.title %></li>
-  <% end %>
-</ul>
-<br>
+<div class="container">
+  <h1><strong>Bookings</strong></h1>
 
+  <% @bookings.each do |booking| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= booking.fane.title %></h2>
+        <p>Available : <%= booking.start_date%> to <%= booking.end_date%> </p>
+        <%= link_to "delete" , booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-primary"%>
+      </div>
+    </div>
+  <% end %>
+</div>
