@@ -4,26 +4,27 @@
     <h4><%= "You have no fane" %> </h4>
     <% else %>
     <h4> <%= "Here all your fanes" %> </h4>
-  <% end %>
-
-  <div class= "card_index">
-    <% @fanes.each do |fane| %>
-      <%= link_to fane_path(fane) do %>
-        <div class="card">
-          <% if fane.photos.attached? %>
-            <%= cl_image_tag(fane.photos.first.key, height: 200, crop: :fill) %>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%=fane.title %></h5>
-            <div class= "bulle_g">
-              <p class= "bulle">Silent</p>
-              <p class= "bulle">Connected</p>
+    <div class= "card_index">
+      <% @fanes.each do |fane| %>
+        <%= link_to fane_path(fane) do %>
+          <div class="card">
+            <% if fane.photos.attached? %>
+              <%= cl_image_tag(fane.photos.first.key, height: 200, crop: :fill) %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= fane.title %></h5>
+              <h5 class="card-title"><%= fane.price_per_day %></h5>
+              <div class= "bulle_g">
+                <p class= "bulle">Silent</p>
+                <p class= "bulle">Connected</p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+
 
   <%# STIMULUS POUR AJOUTER UN FANE %>
   <div data-controller="toggle" class="mt-5" class="d-none">

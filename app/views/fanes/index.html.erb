@@ -12,20 +12,19 @@
   <br>
 </div>
 <div class= "container_index">
-  <div class= "card_index">
-    <% @fanes.each do |fane| %>
-      <%= link_to fane_path(fane) do%>
-        <div class="card">
-          <% if fane.photos.attached? %>
-            <%= cl_image_tag(fane.photos.first.key, height: 200, crop: :fill) %>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%=fane.title %></h5>
-            <div class= "bulle_g">
-              <p class= "bulle">Silent</p>
-              <p class= "bulle">Connected</p>
-            </div>
-
+<div class= "card_index">
+  <% @fanes.each do |fane| %>
+    <%= link_to fane_path(fane) do%>
+      <div class="card">
+        <% if fane.photos.attached? %>
+          <%= cl_image_tag(fane.photos.first.key, height: 200, crop: :fill) %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%=fane.title %></h5>
+          <div class= "bulle_g">
+            <p class= "bulle">Silent</p>
+            <p class= "bulle">Connected</p>
+            <h2 class="price-per-day"> <%= fane.price_per_day %> €/day</h2>
           </div>
         </div>
       <% end %>
