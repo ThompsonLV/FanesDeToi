@@ -1,16 +1,20 @@
 <div class="container">
   <h1><strong>Bookings</strong></h1>
 
-  <% @bookings.each do |booking| %>
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2><%= booking.fane.title %></h2>
-        <p>Available : <%= booking.start_date%> to <%= booking.end_date%> </p>
-        <%= link_to "delete" , booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-primary"%>
+  <div class="card_index">
+    <% @bookings.each do |booking| %>
+      <div class="card">
+        <% if booking.fane.photos.attached? %>
+          <%= cl_image_tag(booking.fane.photos.first.key, height: 200, crop: :fill) %>
+        <% end %>
+        <div class="card-body">
+          <h2 class="card-title"><%= booking.fane.title %></h2>
+          <p>Available : <%= booking.start_date%> to <%= booking.end_date%> </p>
+          <p>Total price : <%= (booking.fane.price_per_day * (booking.end_date - booking.start_date).to_i) %> €</p>
+          <%= link_to "delete" , booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-primary"%>
+        </div>
       </div>
     </div>
     <button><%= link_to "Update", edit_fane_booking_path(booking.fane, booking) %></button>
-  <% end %>
 </div>
 

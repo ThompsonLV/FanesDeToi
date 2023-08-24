@@ -2,6 +2,8 @@
   width: 100%; /* L'image occupe 100% de la largeur de son conteneur */
   height: auto; /* Maintient le ratio d'aspect de l'image */
   display: block; /* Pour éviter l'espacement bas */
+  height: 400px;
+  object-fit: cover;
 }
 
 .ban {
@@ -17,11 +19,16 @@
   transform: translate(-50%, -50%);
   text-align: center;
   color: white; /* Choisissez la couleur qui convient */
-  background-color: rgba(0, 0, 0, 0.7); /* Arrière-plan semi-transparent pour le slogan */
+  background-color: rgb(144, 69, 144); /* Arrière-plan semi-transparent pour le slogan */
   padding: 10px;
+  margin-left: 20px;
   width: 80%; /* Ajustez la largeur du slogan */
   max-width: 500px; /* Limitez la largeur maximale du slogan */
-  border-radius: 5px; /* Coins arrondis pour l'arrière-plan */
+  border-radius: 15px; /* Coins arrondis pour l'arrière-plan */
+}
+
+.slogan_1 {
+  opacity: none;
 }
 
 .banniere_2 {
@@ -34,10 +41,10 @@
 .slogan-banniere {
   position: absolute;
   top: 70%;
-  left: 35%;
+  left: 40%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: black; /* Choisissez la couleur qui convient */
+  color: rgb(144, 69, 144); /* Choisissez la couleur qui convient */
   padding: 10px;
   width: 80%; /* Ajustez la largeur du slogan */
   max-width: 500px; /* Limitez la largeur maximale du slogan */

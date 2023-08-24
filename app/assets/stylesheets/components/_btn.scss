@@ -5,6 +5,7 @@
  border-radius: 10px;
  margin: 5px;
  border: none;
+ color: white;
   .go_ventilo:hover {
     background-color: #45a049;
   }
@@ -16,9 +17,17 @@
   border-radius: 10px;
   margin: 5px;
   border: none;
-  color: white;
+  color: white !important;
   background-color: red !important;
   .delete:hover {
     background-color: #8c1212;
   }
+}
+
+.btn-outline-primary{
+  width: auto;
+}
+
+.btn-primary {
+  width: auto;
 }
