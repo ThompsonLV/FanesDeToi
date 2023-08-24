@@ -19,6 +19,7 @@ puts "----------------------"
 User.create!(email: "charles@gmail.com", name: "charles", iban: "4321", password: 'password123', password_confirmation: 'password123')
 User.create!(email: "Azhari@gmail.com", name: "Azhari", iban: "2413", password: 'password123', password_confirmation: 'password123')
 
+
 fane_1= Fane.new(
   title: "mongomeri",
   brand: "Dyson",
@@ -31,6 +32,7 @@ fane_1= Fane.new(
   Transformez votre espace en un havre de fraîcheur avec notre ventilateur de plafond ultra-silencieux. Sa conception élégante s'intègre parfaitement à n'importe quel intérieur tout en offrant une circulation d'air optimale.",
   price_per_day: 12
 )
+
 file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
 fane_1.photos.attach(io: file, filename: "fane_1.png", content_type: "image/png")
 fane_1.save
@@ -63,9 +65,11 @@ fane_3= Fane.new(
   Transformez votre espace en un havre de fraîcheur avec notre ventilateur de plafond ultra-silencieux. Sa conception élégante s'intègre parfaitement à n'importe quel intérieur tout en offrant une circulation d'air optimale.",
   price_per_day: 12
 )
+
 file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
 fane_3.photos.attach(io: file, filename: "fane_1.png", content_type: "image/png")
 fane_3.save
+
 
 fane_4= Fane.new(
   title: "choupette",
@@ -115,8 +119,8 @@ file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%
 fane_6.photos.attach(io: file, filename: "fane_1.png", content_type: "image/png")
 fane_6.save
 
-Booking.create!(start_date: "17/03/2015", end_date: "04/04/2023", user_id: @thomas.id, fane_id: fane_1.id)
-Booking.create!(start_date: "13/03/1995", end_date: "04/04/2022", user_id: @thomas.id, fane_id: fane_2.id)
+Booking.create!(start_date: "17/03/2015", end_date: "04/09/2023", user_id: @thomas.id, fane_id: fane_1.id)
+Booking.create!(start_date: "13/03/1995", end_date: "04/09/2022", user_id: @thomas.id, fane_id: fane_2.id)
 
 puts "Terminés"
 puts "----------------------"
