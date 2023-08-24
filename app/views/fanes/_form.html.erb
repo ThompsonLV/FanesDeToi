@@ -1,4 +1,4 @@
-<div  data-toggle-target="togglableElement" class="invisible">
+<div  data-toggle-target="togglableElement" class="invisible" data-controller="datepicker">
   <%= simple_form_for(@fane) do |f| %>
     <div class="form_inputs">
       <%= f.input :title %>
@@ -10,8 +10,9 @@
           wrapper_html: {
             data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
         %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
+      <%= text_field_tag "jdkg", nil , data: { datepicker_target: "picker" } %>
+      <%= f.hidden_field :start_date, data: { datepicker_target: "start" } %>
+      <%= f.hidden_field :end_date, data: { datepicker_target: "end" } %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     </div>
     <div class="form_actions">
