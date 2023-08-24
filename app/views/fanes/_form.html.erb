@@ -1,9 +1,10 @@
-<div  data-toggle-target="togglableElement" class="invisible">
+<div  data-toggle-target="togglableElement" class="invisible" data-controller="datepicker">
   <%= simple_form_for(@fane) do |f| %>
     <%= f.input :title %>
     <%= f.input :brand %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+    <%= text_field_tag "jdkg", nil , data: { datepicker_target: "picker" } %>
+    <%= f.hidden_field :start_date, data: { datepicker_target: "start" } %>
+    <%= f.hidden_field :end_date, data: { datepicker_target: "end" } %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit "Submit fane", class: "btn btn-primary" %>
   <% end %>
