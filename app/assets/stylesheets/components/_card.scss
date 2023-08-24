@@ -4,17 +4,38 @@
   margin: 10px;
   padding: 20px;
   grid-gap: 40px;
+  transition: box-shadow 0.3s, background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Effet d'ombre au survol */
+  }
+
+  .card.active {
+    background-color: #f0f0f0; /* Changement de couleur temporaire au clic */
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .card{
   border-radius: 10px;
   border-radius: 0px 0px 15px 15px;
   width: auto;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
 .btn {
   width: 100%;
   border-radius: 15px;
+  background: rgb(144, 69, 144) !important;
 }
 
 .card-title {
@@ -30,8 +51,8 @@
 }
 
 .bulle_g {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
