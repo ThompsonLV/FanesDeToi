@@ -1,6 +1,10 @@
 <div class="container">
   <h1> Hello <%= current_user.name %></h1>
-  <h4>Here all your fanes</h4>
+  <% if @fanes.count == 0 %>
+    <h4><%= "You have no fane" %> </h4>
+    <% else %>
+    <h4> <%= "Here all your fanes" %> </h4>
+  <% end %>
 
   <div class= "card_index">
     <% @fanes.each do |fane| %>
@@ -20,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-
-
 
   <%# STIMULUS POUR AJOUTER UN FANE %>
   <div data-controller="toggle" class="mt-5" class="d-none">
