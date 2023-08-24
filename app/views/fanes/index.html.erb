@@ -11,7 +11,7 @@
   <h1>Current offers!</h1>
   <br>
 </div>
-
+<div class= "container_index">
 <div class= "card_index">
   <% @fanes.each do |fane| %>
     <%= link_to fane_path(fane) do%>
@@ -27,18 +27,19 @@
             <h2 class="price-per-day"> <%= fane.price_per_day %> €/day</h2>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+            <div class= "map"style="width: 100%; height: 600px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
 </div>
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<div class= "banniere_2">
+<%# <div class= "banniere_2">
   <img src="https://media.istockphoto.com/id/108219827/fr/photo/beagle-et-dun-ventilateur-avec-envoyer-les-oreilles.jpg?s=612x612&w=0&k=20&c=Kw0PjAXQvObBIGdFIwuhcWl3s8_8WCbQDwFLTXgXPUQ=" class="img-fluid" alt="bannière 2">
   <div class="slogan-banniere">
     <h2><strong>Un Ventilateur Qui Décoiffe : Rafraîchissement et Style à la Puissance Maximale !</strong></h2>
   </div>
-</div>
+</div> %>
