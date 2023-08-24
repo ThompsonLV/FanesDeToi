@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'date'
 
 puts "----------------------"
 puts "Suppresion des données"
@@ -15,112 +16,107 @@ User.destroy_all
 
 puts "Création des données"
 puts "----------------------"
-@thomas = User.create!(email: "thomas@gmail.com", name: "Thomas", iban: "1234", password: 'password123', password_confirmation: 'password123')
-User.create!(email: "charles@gmail.com", name: "charles", iban: "4321", password: 'password123', password_confirmation: 'password123')
-User.create!(email: "Azhari@gmail.com", name: "Azhari", iban: "2413", password: 'password123', password_confirmation: 'password123')
+@thomas = User.create!(email: "thomas@gmail.com", name: "Thomas", iban: "1234", password: 'azerty', password_confirmation: 'azerty')
+@charles = User.create!(email: "charles@gmail.com", name: "Charles", iban: "1234", password: 'azerty', password_confirmation: 'azerty')
+@azhari = User.create!(email: "azhari@gmail.com", name: "Azhari", iban: "1234", password: 'azerty', password_confirmation: 'azerty')
 
+today = Date.today
 
-fane_1= Fane.new(
-  title: "mongomeri",
+fane1 = Fane.new(
+  title: "Mongomeri",
   brand: "Dyson",
-  start_date: "22/04/2000",
-  end_date: "24/04/2024",
+  start_date: today - 10,
+  end_date: today + (10..30).to_a.sample,
   validation: nil,
   user_id: @thomas.id,
   address: "20 rue des capucins, 69001 lyon ",
-  description: "Ventilateur de Plafond Silencieux et Élégant :
-  Transformez votre espace en un havre de fraîcheur avec notre ventilateur de plafond ultra-silencieux. Sa conception élégante s'intègre parfaitement à n'importe quel intérieur tout en offrant une circulation d'air optimale.",
-  price_per_day: 12
+  description: "Découvrez notre ventilateur de pointe, alliant élégance et performance. Parfait pour garder une brise fraîche dans n'importe quelle pièce, avec ses modes de vitesse réglables et son design moderne.",
+  price_per_day: (10..30).to_a.sample
 )
 
 file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane_1.photos.attach(io: file, filename: "fane_1.png", content_type: "image/png")
-fane_1.save
+fane1.photos.attach(io: file, filename: "fane1.png", content_type: "image/png")
+fane1.save
 
-fane_2= Fane.new(
-  title: "pirouette",
+fane2 = Fane.new(
+  title: "Pirouette",
   brand: "Valseuse",
-  start_date: "22/03/2010",
-  end_date: "14/04/2024",
+  start_date: today - 20,
+  end_date: today + (10..30).to_a.sample,
   validation: nil,
-  user_id: @thomas.id,
+  user_id: @azhari.id,
   address: "22 rue ozanam, 69001 lyon ",
-  description: "Ventilateur de Plafond Silencieux et Élégant :
-  Transformez votre espace en un havre de fraîcheur avec notre ventilateur de plafond ultra-silencieux. Sa conception élégante s'intègre parfaitement à n'importe quel intérieur tout en offrant une circulation d'air optimale.",
-  price_per_day: 12
+  description: "Restez au frais cet été avec notre ventilateur silencieux. Son fonctionnement discret et sa conception portable en font l'accessoire idéal pour les bureaux, chambres et espaces de vie.",
+  price_per_day: (10..30).to_a.sample
 )
 file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane_2.photos.attach(io: file, filename: "fane_2.png", content_type: "image/png")
-fane_2.save
+fane2.photos.attach(io: file, filename: "fane2.png", content_type: "image/png")
+fane2.save
 
-fane_3= Fane.new(
-  title: "pipette",
+fane3 = Fane.new(
+  title: "Pipette",
   brand: "Dyson",
-  start_date: "22/04/2000",
-  end_date: "24/04/2024",
+  start_date: today - 10,
+  end_date: today + (10..30).to_a.sample,
   validation: nil,
   user_id: @thomas.id,
   address: "19 rue benoit tabard, 69130 ecully",
-  description: "Ventilateur de Plafond Silencieux et Élégant :
-  Transformez votre espace en un havre de fraîcheur avec notre ventilateur de plafond ultra-silencieux. Sa conception élégante s'intègre parfaitement à n'importe quel intérieur tout en offrant une circulation d'air optimale.",
-  price_per_day: 12
+  description: "Laissez la chaleur derrière vous avec notre ventilateur haute performance. Ses pales optimisées fournissent un flux d'air puissant tout en étant économe en énergie, pour une sensation de fraîcheur instantanée.",
+  price_per_day: (10..30).to_a.sample
 )
 
 file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane_3.photos.attach(io: file, filename: "fane_1.png", content_type: "image/png")
-fane_3.save
+fane3.photos.attach(io: file, filename: "fane1.png", content_type: "image/png")
+fane3.save
 
 
-fane_4= Fane.new(
+fane4 = Fane.new(
   title: "choupette",
   brand: "baveuse",
-  start_date: "22/03/2010",
-  end_date: "14/04/2024",
+  start_date: today - 10,
+  end_date: today + (10..30).to_a.sample,
   validation: nil,
-  user_id: @thomas.id,
+  user_id: @charles.id,
   address: "175 cours Lafayette, 69006 Lyon",
-  description: "Ventilateur de Plafond Silencieux et Élégant :
-  Transformez votre espace en un havre de fraîcheur avec notre ventilateur de plafond ultra-silencieux. Sa conception élégante s'intègre parfaitement à n'importe quel intérieur tout en offrant une circulation d'air optimale.",
-  price_per_day: 12
+  description: "Le ventilateur de tour élégant et compact est conçu pour une circulation d'air maximale. Profitez de sa télécommande intuitive et de ses fonctions programmables pour un confort personnalisé.",
+  price_per_day: (10..30).to_a.sample
 )
 file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane_4.photos.attach(io: file, filename: "fane_1.png", content_type: "image/png")
-fane_4.save
+fane4.photos.attach(io: file, filename: "fane1.png", content_type: "image/png")
+fane4.save
 
-fane_5= Fane.new(
+fane5 = Fane.new(
   title: "clochette",
   brand: "Dyson",
-  start_date: "22/04/2000",
-  end_date: "24/04/2024",
+  start_date: today - 10,
+  end_date: today + (10..30).to_a.sample,
   validation: nil,
   user_id: @thomas.id,
   address: "30 rue des capucins, 69001 Lyon",
-  description: "Ventilateur de Plafond Silencieux et Élégant :
-  Transformez votre espace en un havre de fraîcheur avec notre ventilateur de plafond ultra-silencieux. Sa conception élégante s'intègre parfaitement à n'importe quel intérieur tout en offrant une circulation d'air optimale.",
-  price_per_day: 12
+  description: "Améliorez la circulation d'air dans votre maison grâce à notre ventilateur de plafond moderne. Ses pales réversibles vous offrent un contrôle total sur la température ambiante toute l'année.",
+  price_per_day: (10..30).to_a.sample
 )
 file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane_5.photos.attach(io: file, filename: "fane_1.png", content_type: "image/png")
-fane_5.save
+fane5.photos.attach(io: file, filename: "fane1.png", content_type: "image/png")
+fane5.save
 
-fane_6= Fane.new(
-  title: "cacahuète",
-  brand: "vostop",
-  start_date: "25/03/2010",
-  end_date: "15/04/2024",
+fane6 = Fane.new(
+  title: "Cacahuète",
+  brand: "Vostop",
+  start_date: today - 10,
+  end_date: today + (10..30).to_a.sample,
   validation: nil,
-  user_id: @thomas.id,
+  user_id: @azhari.id,
   address: "23 rue du port du temple, Lyon",
-  description: "Ventilateur de Plafond Silencieux et Élégant :
-  Transformez votre espace en un havre de fraîcheur avec notre ventilateur de plafond ultra-silencieux. Sa conception élégante s'intègre parfaitement à n'importe quel intérieur tout en offrant une circulation d'air optimale.",
-  price_per_day: 12
+  description: "Le ventilateur de table portable est votre compagnon idéal en déplacement. Son design léger et sa technologie de refroidissement avancée garantissent un soulagement instantané où que vous soyez.",
+  price_per_day: (10..30).to_a.sample
 )
 file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane_6.photos.attach(io: file, filename: "fane_1.png", content_type: "image/png")
-fane_6.save
+fane6.photos.attach(io: file, filename: "fane1.png", content_type: "image/png")
+fane6.save
 
-Booking.create!(start_date: "17/03/2015", end_date: "04/09/2023", user_id: @thomas.id, fane_id: fane_1.id)
-Booking.create!(start_date: "13/03/1995", end_date: "04/09/2022", user_id: @thomas.id, fane_id: fane_2.id)
+Booking.create!(start_date: "17/03/2015", end_date: "04/09/2023", user_id: @thomas.id, fane_id: fane1.id)
+Booking.create!(start_date: "13/03/1995", end_date: "04/09/2022", user_id: @thomas.id, fane_id: fane2.id)
 
 puts "Terminés"
 puts "----------------------"
