@@ -1,5 +1,5 @@
 class FanesController < ApplicationController
-  before_action :set_user, only: %i[edit update]
+  before_action :set_user, only: %i[]
   before_action :set_fane, only: %i[show edit update destroy]
 
   def index

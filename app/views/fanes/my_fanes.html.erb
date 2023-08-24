@@ -17,6 +17,7 @@
               <div class= "bulle_g">
                 <p class= "bulle">Silent</p>
                 <p class= "bulle">Connected</p>
+                <button><%= link_to "update", edit_fane_path(fane)%></button>
               </div>
             </div>
           </div>
@@ -29,6 +30,8 @@
   <%# STIMULUS POUR AJOUTER UN FANE %>
   <div data-controller="toggle" class="mt-5" class="d-none">
     <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new fane</button>
-    <%= render "form", fane: @fane %>
+    <div  data-toggle-target="togglableElement" class="invisible" data-controller="datepicker">
+      <%= render "form", fane: @fane %>
+    </div>
   </div>
 </div>
