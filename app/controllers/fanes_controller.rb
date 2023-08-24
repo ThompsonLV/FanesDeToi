@@ -1,5 +1,5 @@
 class FanesController < ApplicationController
-  before_action :set_user, only: %i[edit update]
+  before_action :set_user, only: %i[]
   before_action :set_fane, only: %i[show edit update destroy]
 
   def index
@@ -11,7 +11,7 @@ class FanesController < ApplicationController
     @markers = @fanes.geocoded.map do |fane|
       {
         lat: fane.latitude,
-        lng: fane.longitude
+        lng: fane.longitude,
         info_window: render_to_string(partial: "info_window", locals: {fane: fane})
       }
     end

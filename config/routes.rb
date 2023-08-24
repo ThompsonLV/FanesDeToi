@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :fanes, only: %i[ show ]
   end
-  resources :fanes, only: %i[ index new create destroy]
+  resources :fanes, only: %i[ index new create destroy edit update]
   get "my_fanes", to: "fanes#my_fanes"
 
   resources :fanes, only: %i[ index show ] do
