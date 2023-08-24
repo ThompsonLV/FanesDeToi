@@ -8,12 +8,10 @@ export default class extends Controller {
   }
 
   fire() {
-    if (this.togglableElementTarget.classList.contains("visible")) {
-      this.togglableElementTarget.classList.add("invisible")
-      this.togglableElementTarget.classList.remove("visible")
+    if (this.togglableElementTarget.classList.contains("d-none")) {
+      this.togglableElementTarget.classList.remove("d-none")
     } else {
-      this.togglableElementTarget.classList.add("visible")
-      this.togglableElementTarget.classList.remove("invisible")
+      this.togglableElementTarget.classList.add("d-none")
     }
     console.log("click");
     }
