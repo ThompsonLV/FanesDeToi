@@ -15,9 +15,10 @@
           <p class= "bulle">Connecté</p>
           <p class= "bulle">Économique</p>
         </div>
-        <%= link_to "go" , fane_path(fane), class:"btn btn-primary"%>
-        <%= link_to "delete" , fane_path(fane), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-primary"%>
 
+          <%= link_to "go" , fane_path(fane), class:"btn btn-primary"%>
+
+          <%= link_to "delete" , fane_path(fane), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-danger"%>
       </div>
     </div>
   <% end %>

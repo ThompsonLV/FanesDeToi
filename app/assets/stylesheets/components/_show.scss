@@ -21,15 +21,70 @@
 }
 
 .brand {
-  background-color: rgb(69, 171, 226);
+  background-color: rgb(72, 75, 77);
   text-align: center;
   width: 30%;
   border-radius: 15px;
   margin: 30px;
+  color: white;
 }
 
 .marque {
-  display: flex;
   flex-direction:row;
   align-items: center;
+  font-size: 16px;
+}
+
+.vent {
+  font-weight: bold;
+}
+
+
+.btn-outline-primary {
+background-color: white;
+border: 1px solid black !important;
+color: black;
+}
+
+.start {
+  flex-direction:row;
+  align-items: center;
+  font-size: 16px;
+}
+
+.start_date {
+  background-color: rgb(72, 75, 77);
+  text-align: center;
+  width: 30%;
+  border-radius: 15px;
+  margin: 30px;
+  color: white;
+}
+
+.end {
+  flex-direction:row;
+  align-items: center;
+  font-size: 16px;
+}
+
+.end_date {
+  background-color: rgb(72, 75, 77);
+  text-align: center;
+  width: 30%;
+  border-radius: 15px;
+  margin: 30px;
+  color: white;
+}
+
+.container_show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.police {
+  font-weight: bold;
+  background-color: rgb(152, 151, 151);
+  border-radius: 15px 15px 0px 0px;
+
 }
