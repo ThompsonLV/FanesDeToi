@@ -14,7 +14,7 @@
           <%= link_to "delete" , booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-primary"%>
         </div>
       </div>
-    </div>
-    <button><%= link_to "Update", edit_fane_booking_path(booking.fane, booking) %></button>
+      <button><%= link_to "Update", edit_fane_booking_path(booking.fane, booking) %></button>
+    <% end %>
+  </div>
 </div>
-
