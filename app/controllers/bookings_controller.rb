@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     @fane = Fane.find(params[:fane_id])
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
-    redirect_to fane_my_bookings_path(@fane)
+    redirect_to my_bookings_path
   end
 
   def destroy
