@@ -4,6 +4,7 @@
   display: block; /* Pour éviter l'espacement bas */
   height: 400px;
   object-fit: cover;
+  transform: scaleX(-1);
 }
 
 .ban {
