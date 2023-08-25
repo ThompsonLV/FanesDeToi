@@ -4,7 +4,20 @@
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "fanes.jpg" %>
       <% end %>
-      <h2 class= "titre_nav">Fanes de toi</h2>
+      <h2 class= "titre_nav">FANES DE TOI</h2>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-sm-8 my-3">
+        <%= form_with url: fanes_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Type a keyword"
+            %>
+          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,6 +27,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <li>
+            <div class="center-text" > Welcome <%= current_user.name %> </div>
+          </li>
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>

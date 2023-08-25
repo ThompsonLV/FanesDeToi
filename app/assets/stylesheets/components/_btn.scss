@@ -25,10 +25,14 @@
 }
 
 .btn-outline-primary{
+  border: none;
+  background-color: $blue !important;
   width: auto;
 }
 
 .btn-primary {
+  background-color: $blue !important;
+  color: white !important;
   width: auto;
 }
 

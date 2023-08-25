@@ -1,0 +1,37 @@
+.la_team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px;
+}
+
+.titre_team {
+  text-align: center;
+  font-weight: bold;
+}
+
+.bd-placeholder-img {
+  display: flex;
+  flex-direction: column;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  img {
+    width: 100%;
+  }
+}
+
+.img_center {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  p {
+  text-align:justify;
+  }
+}
+
+h1 {
+  font-weight: bold;
+}

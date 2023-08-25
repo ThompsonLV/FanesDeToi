@@ -3,11 +3,21 @@ class FanesController < ApplicationController
   before_action :set_fane, only: %i[show edit update destroy]
 
   def index
-    if user_signed_in?
-      @fanes = Fane.where.not(user_id: current_user.id)
-    else
-      @fanes = Fane.all
-    end
+    # SI j'ai un mot dans la search bar
+      # je recherche avec la méthode de pgsearch
+      # SI la recherche est faite par un user connu (ie current_user)
+      # ALORS j'enlève du résultat de la recherche les fanes du current user
+    # SINON
+      # j'affiche tous les fanes
+      if params[:query].present?
+        @fanes = Fane.search_by_title_and_brand_and_description(params[:query])
+
+        if user_signed_in?
+          @fanes = @fanes.where.not(user_id: current_user.id)
+        end
+      else
+        @fanes = Fane.all
+      end
     @markers = @fanes.geocoded.map do |fane|
       {
         lat: fane.latitude,

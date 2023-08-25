@@ -3,8 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 97%;
+  width: 97% !important;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -80,6 +79,7 @@ color: black;
 .container_show {
   display: grid;
   align-items: center;
+  margin-left: 100px;
 }
 
 .police {
