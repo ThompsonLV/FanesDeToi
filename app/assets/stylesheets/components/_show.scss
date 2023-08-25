@@ -105,3 +105,16 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 .script_btn {
   margin:16px;
 }
+
+.form-inputs {
+  width: 100px;
+}
+
+.modal {
+  .container {
+    margin: 0;
+  }
+  .form_inputs{
+    width: auto !important;
+  }
+}

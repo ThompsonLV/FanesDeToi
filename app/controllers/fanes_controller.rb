@@ -55,8 +55,8 @@ class FanesController < ApplicationController
   end
 
   def update
-    @fane.update(fane_params)
-    redirect_to user_fane_path(@user)
+    @fane.update!(fane_params.reject { |k| k["photos"] })
+    redirect_to my_fanes_path
   end
 
   def destroy
@@ -79,6 +79,6 @@ class FanesController < ApplicationController
   end
 
   def fane_params
-    params.require(:fane).permit(:photos, :title, :brand, :start_date, :end_date, :price_per_day, photos: [])
+    params.require(:fane).permit(:title, :brand, :start_date, :end_date, :price_per_day, :address, photos: [])
   end
 end
