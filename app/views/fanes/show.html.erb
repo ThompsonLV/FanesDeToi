@@ -23,7 +23,7 @@
       <% end %>
 
       <% unless @fane.user == current_user || !user_signed_in?%>
-        <%= render "bookings/form", fane: @fane, booking: @booking %>
+          <%= render "bookings/form", fane: @fane, booking: @booking %>
       <% end %>
 
       <% if @fane.user == current_user %>
