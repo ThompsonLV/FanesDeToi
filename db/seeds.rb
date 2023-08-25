@@ -40,7 +40,7 @@ fane1.save
 
 fane2 = Fane.new(
   title: "Pirouette",
-  brand: "Valseuse",
+  brand: "Dyson",
   start_date: today - 20,
   end_date: today + (10..30).to_a.sample,
   validation: nil,
@@ -71,7 +71,7 @@ fane3.save
 
 
 fane4 = Fane.new(
-  title: "choupette",
+  title: "Choupette",
   brand: "baveuse",
   start_date: today - 10,
   end_date: today + (10..30).to_a.sample,
@@ -86,7 +86,7 @@ fane4.photos.attach(io: file, filename: "fane1.png", content_type: "image/png")
 fane4.save
 
 fane5 = Fane.new(
-  title: "clochette",
+  title: "Clochette",
   brand: "Dyson",
   start_date: today - 10,
   end_date: today + (10..30).to_a.sample,
