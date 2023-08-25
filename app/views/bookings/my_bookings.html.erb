@@ -11,9 +11,9 @@
           <h2 class="card-title"><%= booking.fane.title %></h2>
           <p>Available : <%= booking.start_date%> to <%= booking.end_date%> </p>
           <p>Total price : <%= (booking.fane.price_per_day * (booking.end_date - booking.start_date).to_i) %> €</p>
-          <%= link_to "delete" , booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-primary"%>
+          <%= link_to "Update dates", edit_fane_booking_path(booking.fane, booking), class: "btn btn-primary" %>
+          <%= link_to "delete" , booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-danger"%>
         </div>
-      <button><%= link_to "Update", edit_fane_booking_path(booking.fane, booking) %></button>
       </div>
     <% end %>
   </div>

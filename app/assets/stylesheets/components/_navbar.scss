@@ -19,7 +19,7 @@ align-items: center;
 }
 
 .titre_nav {
-  color: rgb(144, 69, 144);
+  color: $blue;
   font-size: 18px;
   margin-top: 15px;
   font-weight: bold;
@@ -34,4 +34,5 @@ align-items: center;
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
+  font-family: $headers-font;
 }
