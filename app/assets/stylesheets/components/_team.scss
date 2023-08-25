@@ -1,10 +1,13 @@
-.la_team {
+#la_team {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin: 20px;
+  background-color: white;
+  padding: 48px;
 }
 
 .titre_team {
+  margin-top: 52px;
   text-align: center;
   font-weight: bold;
 }
