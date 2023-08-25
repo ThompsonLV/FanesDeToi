@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   width: 97% !important;
-  margin: 0 auto;
+  margin: 20px;
   overflow: hidden;
 }
 
@@ -16,7 +16,7 @@
 
 .title_show {
   font-weight: bold;
-  margin: 30px;
+  margin-top: 30px;
   align-items: center;
 }
 
@@ -25,7 +25,7 @@
   text-align: center;
   width: 150px;
   border-radius: 15px;
-  margin: 30px;
+  margin-left: 30px;
   color: white;
 }
 
@@ -57,8 +57,9 @@ color: black;
   text-align: center;
   width: 150px;
   border-radius: 15px;
-  margin: 30px;
   color: white;
+  margin-left: 30px;
+  margin-top: 15px;
 }
 
 .end {
@@ -72,14 +73,16 @@ color: black;
   text-align: center;
   width: 150px;
   border-radius: 15px;
-  margin: 30px;
   color: white;
+  margin-left: 30px;
+  margin-top: 15px;
 }
 
 .container_show {
   display: grid;
   align-items: center;
-  margin-left: 100px;
+  margin-left: 30px;
+  padding: 20px;
 }
 
 .police {
@@ -104,4 +107,24 @@ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 .script_btn {
   margin:16px;
+  background-color: rgb(72, 75, 77);
+  text-align: center;
+  width: 150px;
+  border-radius: 15px;
+  color: white;
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+.book-script {
+  font-weight: bold;
+  background-color: rgb(152, 151, 151);
+  border-radius: 15px 15px 0px 0px;
+}
+
+.flatpickr-input[readonly] {
+  cursor: pointer;
+  width: 140px;
+  border-radius: 20px;
+  margin-bottom: 5px;
 }
