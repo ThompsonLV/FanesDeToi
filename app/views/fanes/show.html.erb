@@ -16,6 +16,26 @@
       <p class= "police">End date</p>
         <h2 class= "end"><%= @fane.end_date %></h2>
     </div>
+    <div class="script_btn">
+      <% if @fane.user != current_user %>
+        <p class="book-script">Choose you're dates</p>
+      <% end %>
+      <% unless @fane.user == current_user || !user_signed_in?%>
+      <%= render "bookings/form", fane: @fane, booking: @booking %>
+    <% end %>
+      <% if @fane.user == current_user %>
+        <%= link_to edit_fane_path(@fane.id) do %>
+        <i class="fa-regular fa-pen-to-square fa-beat style=--fa-animation-duration: 0.6s; fa-3x"></i>
+        <% end %>
+
+      <%end %>
+    <% if @fane.user == current_user %>
+      <%= link_to fane_path(@fane), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+      <i class="fa-regular fa-trash-can fa-beat style=--fa-animation-duration: 0.6s; fa-3x"></i>
+      <% end %>
+    <% end %>
+    </div>
+
   </div>
 </div>
   <%end%>
@@ -28,14 +48,4 @@
     <p class= "description"><%= @fane.description %></p>
   </div>
 
-  <% unless @fane.user == current_user || !user_signed_in?%>
-    <div data-controller="toggle" class="mt-5" class="d-none">
-      <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new booking</button>
-      <%= render "bookings/form", fane:@fane, booking: @booking %>
-    </div>
-  <% end %>
-
-  <% if @fane.user == current_user %>
-    <%= link_to "delete", fane_path(@fane), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class:"btn btn-danger"%>
-  <% end %>
 </div>
