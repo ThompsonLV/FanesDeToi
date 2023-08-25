@@ -19,7 +19,7 @@
 
     <div class="script_btn">
       <% if @fane.user != current_user && user_signed_in? == true %>
-        <p class="book-script">Choose you're dates</p>
+        <p class="book-script">Choose your booking dates</p>
       <% end %>
       <% unless @fane.user == current_user || !user_signed_in?%>
       <%= render "bookings/form", fane: @fane, booking: @booking %>
