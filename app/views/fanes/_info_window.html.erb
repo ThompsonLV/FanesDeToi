@@ -1,3 +1,4 @@
 <h2><%= fane.title %></h2>
 <p><%= fane.address %></p>
-<p><%= fane.price_per_day %></p>
+<p><strong><%= fane.price_per_day  %> €/day</strong></p>
+<%= cl_image_tag(fane.photos.first.key, height: 150, width: 150, alt: "Logo") %>
