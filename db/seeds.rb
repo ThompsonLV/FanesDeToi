@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'date'
+require 'faker'
 
 puts "----------------------"
 puts "Suppresion des données"
@@ -20,103 +21,66 @@ puts "----------------------"
 @charles = User.create!(email: "charles@gmail.com", name: "Charles", iban: "1234", password: 'azerty', password_confirmation: 'azerty')
 @azhari = User.create!(email: "azhari@gmail.com", name: "Azhari", iban: "1234", password: 'azerty', password_confirmation: 'azerty')
 
+users_id = [@thomas.id, @charles.id, @azhari.id]
+
 today = Date.today
 
-fane1 = Fane.new(
-  title: "Mongomeri",
-  brand: "Dyson",
-  start_date: today - 10,
-  end_date: today + (10..30).to_a.sample,
-  validation: nil,
-  user_id: @thomas.id,
-  address: "20 rue des capucins, 69001 lyon ",
-  description: "Découvrez notre ventilateur de pointe, alliant élégance et performance. Parfait pour garder une brise fraîche dans n'importe quelle pièce, avec ses modes de vitesse réglables et son design moderne.",
-  price_per_day: (1..10).to_a.sample
-)
+adress = [
+  "130 Cours Lafayette, 69003 Lyon",
+  "132 Rue Pierre Corneille, 69003 Lyon",
+  "8 Rue Malesherbes, 69006 Lyon",
+  "8 place de Fourvière, 69005 Lyon",
+  "7 Rue Neuve, 69001 Lyon",
+  "10 Rue de la République, 69001 Lyon",
+  "30 Cours de Verdun Perrache, 69002 Lyon",
+  "3 Rue Pré-Gaudry, 69007 Lyon",
+  "58 Rue Clément Marot, 69007 Lyon",
+  "73 Rue Pierre Delore, 69008 Lyon",
+  "59 Rue Trarieux, 69003 Lyon",
+  "18 Rue Poizat, 69100 Villeurbanne",
+  "52 Rue Alexis Perroncel, 69100 Villeurbanne",
+  "3 Rue des Pierres Plantées, 69001 Lyon",
+  "47 Rue Pasteur, 69300 Caluire-et-Cuire"
+]
 
-file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane1.photos.attach(io: file, filename: "fane1.png", content_type: "image/png")
-fane1.save
+image = [
+  "https://media.carrefour.fr/medias/f22fd71600a634d197f111e56f4a381e/p_1500x1500/3616952857363-photosite-2023613-15565-1.jpg",
+  "https://images.tempsl.fr/Produits/528/2505410_WEB1.jpg",
+  "https://media.ventilateurs-plafond.com/10698-large_default/ventilateur-de-table-30-cm-blanc-3-vitesses-avec-grille-de-protection-oscillant.jpg",
+  "https://brumisateur-terrasse.fr/cdn/shop/products/VentilateuravecKitBrumisateurpourVentilateur_1200x.png?v=1673444524",
+  "https://moineau-instruments.com/3790-large_default/ventilateur-de-sol-diametre-30-cm.jpg",
+  "https://cdn.manomano.com/media/edison/2/5/8/f/258ff1fc604d.jpg",
+  "https://www.decome-store.fr/19645-thickbox_pbm/ventilateur-brumisateur-professionnel-haute-performance-180cm.jpg",
+  "https://www.airchaud-diffusion.fr/medias/-/mention/images/produits/ventilateur-mobile-au-sol-electrique-vm-50-pa-2-splus-0d-00354-rsp.jpg?t=1650986980",
+  "https://aecamp.biz/11836-thickbox_default/ventilateur-avec-pince-230v.jpg",
+  "https://www.protoumat.fr/medias/-/mention/images/produits/ventilateur-industriel-gros-debit-pour-chantier-7860m-splus-sp-2112570-sp-2112570-0c-13265-rsp.jpg?t=1690311683",
+  "https://media-growled.growenhancer.eu/15488-large_default/ventilateur-oscillant-a-pince-20w-25cm-garden-highpro.jpg",
+  "https://m.media-amazon.com/images/I/71tONFoBAGL._AC_UF1000,1000_QL80_.jpg",
+  "https://salson.fr/12972-home_default/ventilateur-sur-pied-45cm-bois-3xvi.jpg",
+  "https://www.racetools.fr/37083-thickbox_default/ventilateur-industriel-sur-pied-o508cm-120w-stanley-st-20p-e.jpg"
+]
 
-fane2 = Fane.new(
-  title: "Pirouette",
-  brand: "Dyson",
-  start_date: today - 20,
-  end_date: today + (10..30).to_a.sample,
-  validation: nil,
-  user_id: @azhari.id,
-  address: "22 rue ozanam, 69001 lyon ",
-  description: "Restez au frais cet été avec notre ventilateur silencieux. Son fonctionnement discret et sa conception portable en font l'accessoire idéal pour les bureaux, chambres et espaces de vie.",
-  price_per_day: (1..10).to_a.sample
-)
-file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane2.photos.attach(io: file, filename: "fane2.png", content_type: "image/png")
-fane2.save
+i = 0
+14.times do
+  fane = Fane.new(
+    title: Faker::Name.middle_name,
+    brand: Faker::Commerce.brand,
+    start_date: today - 20,
+    end_date: today + (10..30).to_a.sample,
+    validation: nil,
+    user_id: users_id.sample,
+    address: adress[i],
+    description: Faker::Markdown.emphasis,
+    price_per_day: (1..4).to_a.sample
+  )
+  file = URI.open(image[i])
+  fane.photos.attach(io: file, filename: "fane.png", content_type: "image/png")
+  fane.save
+  i += 1
+end
 
-fane3 = Fane.new(
-  title: "Pipette",
-  brand: "Dyson",
-  start_date: today - 10,
-  end_date: today + (10..30).to_a.sample,
-  validation: nil,
-  user_id: @thomas.id,
-  address: "19 rue benoit tabard, 69130 ecully",
-  description: "Laissez la chaleur derrière vous avec notre ventilateur haute performance. Ses pales optimisées fournissent un flux d'air puissant tout en étant économe en énergie, pour une sensation de fraîcheur instantanée.",
-  price_per_day: (1..10).to_a.sample
-)
-
-file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane3.photos.attach(io: file, filename: "fane1.png", content_type: "image/png")
-fane3.save
-
-
-fane4 = Fane.new(
-  title: "Choupette",
-  brand: "baveuse",
-  start_date: today - 10,
-  end_date: today + (10..30).to_a.sample,
-  validation: nil,
-  user_id: @charles.id,
-  address: "175 cours Lafayette, 69006 Lyon",
-  description: "Le ventilateur de tour élégant et compact est conçu pour une circulation d'air maximale. Profitez de sa télécommande intuitive et de ses fonctions programmables pour un confort personnalisé.",
-  price_per_day: (1..10).to_a.sample
-)
-file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane4.photos.attach(io: file, filename: "fane1.png", content_type: "image/png")
-fane4.save
-
-fane5 = Fane.new(
-  title: "Clochette",
-  brand: "Dyson",
-  start_date: today - 10,
-  end_date: today + (10..30).to_a.sample,
-  validation: nil,
-  user_id: @thomas.id,
-  address: "30 rue des capucins, 69001 Lyon",
-  description: "Améliorez la circulation d'air dans votre maison grâce à notre ventilateur de plafond moderne. Ses pales réversibles vous offrent un contrôle total sur la température ambiante toute l'année.",
-  price_per_day: (1..10).to_a.sample
-)
-file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane5.photos.attach(io: file, filename: "fane1.png", content_type: "image/png")
-fane5.save
-
-fane6 = Fane.new(
-  title: "Cacahuète",
-  brand: "Vostop",
-  start_date: today - 10,
-  end_date: today + (10..30).to_a.sample,
-  validation: nil,
-  user_id: @azhari.id,
-  address: "23 rue du port du temple, Lyon",
-  description: "Le ventilateur de table portable est votre compagnon idéal en déplacement. Son design léger et sa technologie de refroidissement avancée garantissent un soulagement instantané où que vous soyez.",
-  price_per_day: (1..10).to_a.sample
-)
-file = URI.open("https://www.festihome.com/img/cms/images-conseils/4%20conseils%20pour%20bien%20utiliser%20son%20ventilateur/ventilateur-bronze.jpg")
-fane6.photos.attach(io: file, filename: "fane1.png", content_type: "image/png")
-fane6.save
-
-Booking.create!(start_date: "17/03/2015", end_date: "04/09/2023", user_id: @thomas.id, fane_id: fane1.id)
-Booking.create!(start_date: "13/03/1995", end_date: "04/09/2022", user_id: @thomas.id, fane_id: fane2.id)
+# Booking.create!(start_date: today - 20, end_date: today + 10, user_id: @thomas.id, fane_id: Fane.first.id)
+# Booking.create!(start_date: today - 10, end_date: today + 15, user_id: @thomas.id, fane_id: Fane.second.id)
 
 puts "Terminés"
 puts "----------------------"
