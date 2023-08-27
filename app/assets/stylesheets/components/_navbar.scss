@@ -1,6 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  z-index: 500;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  font-family: $headers-font;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -27,14 +32,6 @@ align-items: center;
 
 .form-control {
   width: 350px;
-}
-
-.navbar{
-  z-index: 500;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
-  font-family: $headers-font;
 }
 
 .center-text{
