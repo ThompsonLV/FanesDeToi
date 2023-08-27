@@ -1,69 +1,54 @@
 <div class="container">
-  <h2 class= "title_show"><%= @fane.title %></h2>
-  <div class= "img_container">
-    <% @fane.photos.each do |photo|%>
-      <%= cl_image_tag(photo.key, crop: :fill, class: "img_client") %>
-    <div class= "container_show">
-      <div class= "brand">
-        <p class= "police">Brand</p>
-        <h2 class= "marque"><%= @fane.brand %></h2>
-      </div>
-      <div class= "start_date">
-        <p class= "police">Start date</p>
-        <h2 class= "start"><%= @fane.start_date %></h2>
-      </div>
-      <div class= "end_date">
-        <p class= "police">End date</p>
-        <h2 class= "end"><%= @fane.end_date %></h2>
-      </div>
-
-    <div class="script_btn">
-      <% if @fane.user != current_user && user_signed_in? == true %>
-        <p class="book-script">Choose your booking dates</p>
-      <% end %>
-
-      <% unless @fane.user == current_user || !user_signed_in?%>
-          <%= render "bookings/form", fane: @fane, booking: @booking %>
-      <% end %>
-
-      <% if @fane.user == current_user %>
-        <%= link_to fane_path(@fane), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <i class="fa-regular fa-trash-can fa-beat style=--fa-animation-duration: 0.6s; fa-3x"></i>
-        <% end %>
-      <% end %>
-
-      <!-- Modal -->
-      <% if @fane.user == current_user %>
-        <button type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        <i class="fa-regular fa-pen-to-square fa-beat style=--fa-animation-duration: 0.6s; fa-3x"></i></button>
-
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <%= render "form" %>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-              </div>
+  <div class="card-product">
+    <div class="card-product-image d-flex align-items-center justify-content-center">
+      <%= cl_image_tag(@fane.photos.first.key, crop: :fill, class: 'img_client') %>
+      <div>
+          <div class= "card-product-infos">
+            <div class="card-product-infos-title">
+              <h2>Brand</h2>
+            </div>
+            <div class="card-product-infos-data">
+              <h2 class= "end"><%= @fane.brand %></h2>
             </div>
           </div>
+          <div class= "card-product-infos">
+            <div class="card-product-infos-title">
+              <h2>Start date</h2>
+            </div>
+            <div class="card-product-infos-data">
+              <h2 class= "end"><%= @fane.start_date %></h2>
+            </div>
+          </div>
+          <div class= "card-product-infos">
+            <div class="card-product-infos-title">
+              <h2>End date</h2>
+            </div>
+            <div class="card-product-infos-data">
+              <h2 class= "end"><%= @fane.end_date %></h2>
+            </div>
+          </div>
+          <% if @fane.user == current_user %>
+            <%= link_to fane_path(@fane), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <i class="fa-regular fa-trash-can fa-beat style=--fa-animation-duration: 0.6s; fa-3x"></i>
+            <% end %>
+          <% end %>
         </div>
-      <% end %>
+
+        <div class="card-product-infos">
+          <% unless @fane.user == current_user || !user_signed_in?%>
+              <h2 class="card-product-infos-title">Choose your booking dates</h2>
+              <div class="card-product-infos-data">
+                <%= render "bookings/form", fane: @fane, booking: @booking %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    <div class="card-product-description">
+      <div>
+        <h2><%= @fane.title %></h2>
+        <p><%= @fane.description %></p>
+      </div>
+      <h2 class="card-product-pricing"><%= @fane.price_per_day %>€ / jour</h2>
     </div>
-  </div>
-
-  </div>
-    <%end%>
-
-  <div class= "content_show">
-  <h2 class= "vent">About the fan.</h2>
-  <div >
-    <p class= "description"><%= @fane.description %></p>
   </div>
 </div>

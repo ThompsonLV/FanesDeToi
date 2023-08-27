@@ -29,14 +29,10 @@
 
   img {
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: white;
+    padding-top: 8px;
   }
-}
-
-.btn {
-  width: 100%;
-  border-radius: 15px;
-  background: rgb(144, 69, 144) !important;
 }
 
 .card-title {
@@ -44,58 +40,20 @@
   text-align: center;
 }
 
-.bulle {
-  background-color: rgb(166, 173, 177);
-  text-align: center;
-  padding: 5%;
-  border-radius: 40px;
-}
-
-.bulle_g {
+.bulle_grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-
 }
 
-
-// POUR LES MY_BOOKINGS
-.card-product {
-  overflow: hidden;
-  width: 600px;
-  height: 160px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-
-  img {
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-  }
-
-  h2 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-  }
-
-  p {
-    font-size: 12px;
-    line-height: 1.4;
-    opacity: .7;
-    margin-bottom: 0;
-    margin-top: 8px;
-  }
-
-}
-
-.card-product .card-product-infos {
-  padding: 16px;
+.bulle {
+  background-color: $blue;
+  text-align: center;
+  padding: 5%;
+  border-radius: 40px;
+  color : white
 }
 
 .container_index {
@@ -105,9 +63,65 @@
 
 }
 
-#map {
-  border-radius: 10px;
-  position: sticky;
-  top: 100px !important;
-  height: calc(100vh - 110px) !important;
+.card-product {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 156px;
+  border-radius: 4px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+}
+
+.card-product-image {
+  padding: 24px;
+
+  > img {
+    height: 40%;
+    width: 40%;
+    object-fit: cover;
+  }
+}
+
+.card-product-description {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-product-infos {
+  width: 200px;
+  margin-left: 16px ;
+}
+
+.card-product-infos-title {
+  background-color: $blue;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px;
+  text-align: center;
+  border-radius: 12px 12px 0 0;
+}
+
+.card-product-infos-data {
+  background-color: rgb(227, 226, 226);
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px;
+  text-align: center;
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 12px;
 }

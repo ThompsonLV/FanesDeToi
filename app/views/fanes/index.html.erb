@@ -1,3 +1,4 @@
+<%# BANNIERE %>
 <div class= "ban">
   <%= image_tag('banniere.jpg', class: 'img-fluid', alt: 'Bannière ventilo') %>
   <div class="slogan-overlay">
@@ -5,14 +6,9 @@
   </div>
 </div>
 
-</div>
-<div class= "text-center">
-<br>
-  <h1>CURRENT OFFERS !</h1>
-  <br>
-</div>
+<%# OFFRES DU MOMENT %>
+<h1 class= "text-center mt-4">CURRENT OFFERS !</h1>
 <div class= "container_index">
-
   <div class= "card_index">
     <% @fanes.each do |fane| %>
       <% if fane.user != current_user %>
@@ -22,20 +18,22 @@
               <%= cl_image_tag(fane.photos.first.key, height: 200, crop: :fill) %>
             <% end %>
             <div class="card-body">
-              <h5 class="card-title"><%=fane.title %></h5>
-              <div class= "bulle_g">
+              <h4 class="card-title"><%=fane.title %></h4>
+              <div class="d-flex justify-content-center">
+                <h5><%=fane.price_per_day %> €/day </h5>
+              </div>
+              <div class= "bulle_grid">
                 <p class= "bulle">Silent</p>
                 <p class= "bulle">Connected</p>
               </div>
-                <div class="d-flex justify-content-center">
-                  <p><%=fane.price_per_day %> €/day </p>
-                </div>
             </div>
           </div>
         <% end %>
       <% end %>
     <% end %>
   </div>
+
+  <%# MAP %>
   <div id="map" style="width: 100%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
