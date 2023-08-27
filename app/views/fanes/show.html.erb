@@ -1,48 +1,49 @@
 <div class="container">
   <div class="card-product">
-    <div class="card-product-image d-flex align-items-center justify-content-center">
+    <h1 class="text-center mt-3"><%= @fane.title %></h1>
+    <div class="card-product-image d-flex justify-content-center">
       <%= cl_image_tag(@fane.photos.first.key, crop: :fill, class: 'img_client') %>
-      <div>
-          <div class= "card-product-infos">
-            <div class="card-product-infos-title">
-              <h2>Brand</h2>
-            </div>
-            <div class="card-product-infos-data">
-              <h2 class= "end"><%= @fane.brand %></h2>
-            </div>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class= "card-product-infos">
+          <div class="card-product-infos-title">
+            <h2>Brand</h2>
           </div>
-          <div class= "card-product-infos">
-            <div class="card-product-infos-title">
-              <h2>Start date</h2>
-            </div>
-            <div class="card-product-infos-data">
-              <h2 class= "end"><%= @fane.start_date %></h2>
-            </div>
+          <div class="card-product-infos-data">
+            <h2 class= "end"><%= @fane.brand %></h2>
           </div>
-          <div class= "card-product-infos">
-            <div class="card-product-infos-title">
-              <h2>End date</h2>
-            </div>
-            <div class="card-product-infos-data">
-              <h2 class= "end"><%= @fane.end_date %></h2>
-            </div>
-          </div>
-          <% if @fane.user == current_user %>
-            <%= link_to fane_path(@fane), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-              <i class="fa-regular fa-trash-can fa-beat ; fa-3x"></i>
-            <% end %>
-          <% end %>
         </div>
-
-        <div class="card-product-infos">
-          <% unless @fane.user == current_user || !user_signed_in?%>
-              <h2 class="card-product-infos-title">Choose your booking dates</h2>
-              <div class="card-product-infos-data">
-                <%= render "bookings/form", fane: @fane, booking: @booking %>
-              </div>
-          <% end %>
+        <div class= "card-product-infos">
+          <div class="card-product-infos-title">
+            <h2>Start date</h2>
+          </div>
+          <div class="card-product-infos-data">
+            <h2 class= "end"><%= @fane.start_date %></h2>
+          </div>
         </div>
+        <div class= "card-product-infos">
+          <div class="card-product-infos-title">
+            <h2>End date</h2>
+          </div>
+          <div class="card-product-infos-data">
+            <h2 class= "end"><%= @fane.end_date %></h2>
+          </div>
+        </div>
+        <% if @fane.user == current_user %>
+          <%= link_to fane_path(@fane), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <i class="fa-regular fa-trash-can fa-2x ", style="color: red"></i>
+          <% end %>
+        <% end %>
       </div>
+
+      <div class="card-product-infos">
+        <% unless @fane.user == current_user || !user_signed_in?%>
+            <h2 class="card-product-infos-title">Choose your booking dates</h2>
+            <div class="card-product-infos-data">
+              <%= render "bookings/form", fane: @fane, booking: @booking %>
+            </div>
+        <% end %>
+      </div>
+    </div>
     <div class="card-product-description">
       <div>
         <h2><%= @fane.title %></h2>
